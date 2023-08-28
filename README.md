@@ -1,9 +1,15 @@
 email
 =====
 
-[![Build Status](https://travis-ci.org/jordan-wright/email.png?branch=master)](https://travis-ci.org/jordan-wright/email) [![GoDoc](https://godoc.org/github.com/jordan-wright/email?status.svg)](https://godoc.org/github.com/jordan-wright/email)
+Fork From [jordan-wright/email](https://github.com/jordan-wright/email)
 
-Robust and flexible email library for Go
+现有的go-mail实现连接池 有一些问题
+1. 没有Stat()统计方法
+2. 没有最大空闲连接的参数
+3. 创建连接之后，没有空闲到一定时间自动关闭的功能，即创建之后一直占着连接资源，即使没有发送邮件的请求
+
+参考[go-redis](https://github.com/redis/go-redis/blob/master/internal/pool/pool.go)的连接池实现了新的实现
+
 
 ### Email for humans
 The ```email``` package is designed to be simple to use, but flexible enough so as not to be restrictive. The goal is to provide an *email interface for humans*.
